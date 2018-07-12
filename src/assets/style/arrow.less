@@ -1,0 +1,46 @@
+.arrow(@arrowsize, @borderColor, @borderWidth) {
+    display: inline-block;
+    height: @arrowsize;
+    width: @arrowsize;
+    border-width: @borderWidth @borderWidth 0 0;
+    border-color: @borderColor;
+    border-style: solid;
+    position: absolute;
+}
+.arrow_top( @arrowsize: .16rem, @borderColor: #999, @borderWidth: .02rem) {
+  .arrow(@arrowsize, @borderColor, @borderWidth);
+    transform: matrix(0.71,-0.71,0.71,0.71,0,0); // rotate(-45deg)
+}
+.arrow_right( @arrowsize: .16rem, @borderColor: #999, @borderWidth: .02rem) {
+  .arrow(@arrowsize, @borderColor, @borderWidth);
+    transform: matrix(0.71,0.71,-0.71,0.71,0,0); // rotate(45deg);
+}
+.arrow_bottom( @arrowsize: .16rem, @borderColor: #999, @borderWidth: .02rem) {
+  .arrow(@arrowsize, @borderColor, @borderWidth);
+    transform: matrix(-0.71,0.71,-0.71,-0.71,0,0); // rotate(135deg);
+}
+.arrow_left( @arrowsize: .16rem, @borderColor: #999, @borderWidth: .02rem) {
+  .arrow(@arrowsize, @borderColor, @borderWidth);
+    transform: matrix(-0.71,-0.71,0.71,-0.71,0,0); // rotate(-135deg);
+}
+
+.arrow-top,.arrow-right,.arrow-bottom,.arrow-left,.arrow-top_strong,.arrow-right_strong,.arrow-bottom_strong,.arrow-left_strong{position: relative;}
+
+.arrow-top::after
+,.arrow-right::after
+,.arrow-bottom::after
+,.arrow-left::after
+,.arrow-top_strong::after
+,.arrow-right_strong::after
+,.arrow-bottom_strong::after
+,.arrow-left_strong::after{content: ''; top: 50%; right: .3rem;}
+
+.arrow-top::after{.arrow_top(); margin-top: -.04rem; margin-right: -.06rem;}
+.arrow-right::after{.arrow_right(); margin-top: -.1rem; margin-right: -.02rem;}
+.arrow-bottom::after{.arrow_bottom(); margin-top: -.14rem; margin-right: -.06rem;}
+.arrow-left::after{.arrow_left(); margin-top: -.1rem; margin-right: -.1rem;}
+
+.arrow-top_strong::after{.arrow_top(.16rem,#999,.04rem); margin-top: -.04rem; margin-right: -.06rem;}
+.arrow-right_strong::after{.arrow_right(.16rem,#999,.04rem); margin-top: -.1rem; margin-right: -.02rem;}
+.arrow-bottom_strong::after{.arrow_bottom(.16rem,#999,.04rem); margin-top: -.14rem; margin-right: -.06rem;}
+.arrow-left_strong::after{.arrow_left(.16rem,#999,.04rem); margin-top: -.1rem; margin-right: -.1rem;}

@@ -1,0 +1,17 @@
+@colors:
+#998CF5,
+rgb(255, 122, 60),
+yellow;
+
+@index:1;
+
+.textColor{
+    color: extract(@colors, @index) !important;
+}
+.bgColor{
+    background-color: extract(@colors, @index) !important;
+}
+.borderColor{
+    border-color: extract(@colors, @index) !important;
+}
+
