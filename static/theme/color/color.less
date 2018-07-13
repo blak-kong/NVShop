@@ -1,17 +1,32 @@
-@colors:
-#998CF5,
-rgb(255, 122, 60),
-yellow;
+@fColors:
+    #998CF5,
+    rgb(255, 122, 60),
+    yellow;
+
+@sColors:
+    #6EA3FE,
+    rgb(255, 122, 60),
+    yellow;
 
 @index:1;
 
-.textColor{
-    color: extract(@colors, @index) !important;
+.f-textColor{
+    color: extract(@fColors, @index) !important;
 }
-.bgColor{
-    background-color: extract(@colors, @index) !important;
+.f-bgColor{
+    background-color: extract(@fColors, @index) !important;
 }
-.borderColor{
-    border-color: extract(@colors, @index) !important;
+.f-borderColor{
+    border-color: extract(@fColors, @index) !important;
+}
+
+.s-textColor{
+    color: extract(@sColors, @index) !important;
+}
+.s-bgColor{
+    background-color: extract(@sColors, @index) !important;
+}
+.s-borderColor{
+    border-color: extract(@sColors, @index) !important;
 }
 

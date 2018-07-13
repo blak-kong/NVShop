@@ -1,9 +1,18 @@
-.textColor {
+.f-textColor {
   color: #998CF5 !important;
 }
-.bgColor {
+.f-bgColor {
   background-color: #998CF5 !important;
 }
-.borderColor {
+.f-borderColor {
   border-color: #998CF5 !important;
+}
+.s-textColor {
+  color: #6EA3FE !important;
+}
+.s-bgColor {
+  background-color: #6EA3FE !important;
+}
+.s-borderColor {
+  border-color: #6EA3FE !important;
 }
