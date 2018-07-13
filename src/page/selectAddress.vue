@@ -19,11 +19,11 @@
       <!-- 默认地址 -->
       <div class="select-address">
           <div class="select-address__radio">
-            <input type="radio" name="1" :value="index" v-model="currentValue"/>
-            <div class="radio-icon">
+            <input type="radio" name="address" :value="index" v-model="currentValue"/>
+            <div class="radio-icon" :class="[currentValue == index ? 'f-bgColor' : '']">
               <i class="mtui-icon-select"></i>
             </div>
-            <p>默认地址</p>
+            <p :class="[currentValue == index ? 'f-textColor' : '']">默认地址</p>
           </div>
           <div class="select-address__right">
             <div class="address-edit">
@@ -37,9 +37,9 @@
           </div>
       </div>
     </div>
-    <div class="footer f-bgColor">
+    <router-link tag="div" class="footer f-bgColor" to="/addAddress">
       + 新增地址
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -48,7 +48,7 @@
     data() {
       return {
         value: '',
-        currentValue:'',
+        currentValue:'0',
         list: [
           {
             name: '莫婷婷',
@@ -67,12 +67,7 @@
       }
     },
     watch: {
-      value(val) {
-        // this.currentValue = val;
-        console.log(val)
-      },
       currentValue(val) {
-        // this.$emit('input', val);
         console.log(val)
       },
     },
@@ -158,7 +153,7 @@
         position: absolute;
         width: 100%;
         height: .8rem;
-        left: -9999em;
+        opacity: 0;
       }
       p {
         margin-left: .48rem;
@@ -172,7 +167,7 @@
         height: .3rem;
         border-radius: 100%;
         border: .01rem solid #ccc;
-        background: #A079F0;
+        background: #fff;
         .mtui-icon-select {
           position: absolute;
           left: -.02rem;

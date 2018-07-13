@@ -20,6 +20,15 @@
     <div class="address">
       <input type="text" placeholder="请输入详细地址" v-model="address">
     </div>
+    <div class="change-address">
+      <div class="select-address__radio">
+        <div class="radio-icon" :class="[isValue ? 'f-bgColor' : '']">
+          <i class="mtui-icon-select"></i>
+        </div>
+        <p @click="valueChange" :class="[isValue ? 'f-textColor' : '']">默认地址</p>
+      </div>
+      <div @click="deleteAddress" class="deleteAddress f-textColor">清空当前地址</div>
+    </div>
     <div class="footer f-bgColor">
       保存
     </div>
@@ -35,7 +44,9 @@ import addr from '@/../static/json/pca-code.json'
         name: '',
         phone:'',
         address: '',
-        cities: ''
+        cities: '',
+        isValue: false,
+        currentValue: false,
       }
     },
     methods: {
@@ -57,11 +68,26 @@ import addr from '@/../static/json/pca-code.json'
             self.cities = value;
           },
         })
+      },
+      valueChange() {
+        this.isValue = !this.isValue;
+      },
+      deleteAddress() {
+        this.$messagebox.confirm('确定清空地址？').then((action) => {
+          console.log(action)
+          if (action === 'confirm') {
+            this.cities = '';
+            this.address = '';
+          }
+        });
       }
     },
     watch: {
       address() {
         console.log(this.address)
+      },
+      currentValue(val) {
+        console.log(val)
       }
     }
   }
@@ -136,10 +162,59 @@ import addr from '@/../static/json/pca-code.json'
   box-sizing: border-box;
   input {
     width: 100%;
-    height: 60%;
+    height: 100%;
     border: none;
   }
 }
+
+.change-address {
+  width: 100%;;
+  height: .8rem;
+  line-height: .8rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 .34rem 0 .24rem;
+  background: #F5F5F5;
+  box-sizing: border-box;
+  z-index: 100;
+  /**** 单选框 start ****/
+  .select-address__radio {
+    position: relative;
+    display: inline-block;
+    input {
+      position: absolute;
+      width: 100%;
+      height: .8rem;
+      opacity: 0;
+    }
+    p {
+      margin-left: .48rem;
+      color: #333;
+      font-size: .28rem;
+    }
+    .radio-icon {
+      position: absolute;
+      top: .24rem;
+      width: .3rem;
+      height: .3rem;
+      border-radius: 100%;
+      border: .01rem solid #ccc;
+      background: #fff;
+      .mtui-icon-select {
+        position: absolute;
+        left: -.02rem;
+        bottom: 0;
+        font-size: .14rem;
+        color: #fff;
+      }
+    }
+  }
+  /**** 单选框 end ****/
+  .deleteAddress {
+    font-size: .28rem;
+  }
+}
+
 
 .footer {
   position: fixed;
