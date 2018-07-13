@@ -11,7 +11,8 @@ p{border: 1px solid #e5e5e5; font-size: .3rem;}
         <p class="arrow-left">home</p>
         <router-link to="/productDetail">productDetail</router-link>
         <br>
-        
+        <router-link to="/selectAddress">selectAddress</router-link>
+        <br>
         <p class="arrow-top_strong">home</p>
         <p class="arrow-right_strong">home</p>
         <p class="arrow-bottom_strong">home</p>
