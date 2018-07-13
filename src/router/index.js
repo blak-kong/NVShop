@@ -6,7 +6,8 @@ Vue.use(Router)
 const routes = [
   {n:'home',p:'/',describe:'首页'},
   {n:'productDetail',p:'/productDetail',describe:'商品详情'},
-  {n:'selectAddress',p:'/selectAddress',describe:'添加地址'}
+  {n:'selectAddress',p:'/selectAddress',describe:'添加地址'},
+  {n:'addAddress',p:'/addAddress',describe:'新增地址'}
 ]
 
 function getRouter(){
